@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cancer stats</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../Datasets/clean_inci.js"></script>
+</head>
+<body>
+    <h1>Cancer Incidence in Canada from 1992-2017</h1>
+    <div id="graph"></div>
+
+    <script>
+        // data from clean_inci
+        var data = clean_inci;
+
+        // Sort based on Date
+        data.sort((a, b) => a.REF_DATE - b.REF_DATE);
+
+        // establishing the x and y data
+        var xData = data.map(record => record.REF_DATE);
+        var yData = data.map(record => record.VALUE);
+
+        // line graph using Plotly
+        var trace = {
+            x: xData,
+            y: yData,
+            mode: 'lines',
+            type: 'scatter'
+        };
+
+        var layout = {
+            title: 'Cases Over Time',
+            xaxis: {
+                title: 'Years',
+                type: 'category'
+            },
+            yaxis: {
+                title: 'Cases'
+            }
+        };
+
+        Plotly.newPlot('graph', [trace], layout);
+    </script>
+</body>
+</html>
