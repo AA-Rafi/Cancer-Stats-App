@@ -5,22 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cancer (Project 3)</title>
-    <link href="style1.css" rel = "stylesheet">
-    <script src="script1.js"></script>
-    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <link href="statsstyle.css" rel = "stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../templates/statsscript.js"></script>
 </head>
 <body>
 
-<h1> Who Does Cancer Affect?</h1>
-   
+
+<h1>Cancer Incidence in Canada from 1992-2017</h1>
+<div id="graph"></div>
+
+<script>
+    // data from clean_inci
+    var data = clean_inci;
+
+    // Sort based on Date
+    data.sort((a, b) => a.REF_DATE - b.REF_DATE);
+
+    // establishing the x and y data
+    var xData = data.map(record => record.REF_DATE);
+    var yData = data.map(record => record.VALUE);
+
+    // line graph using Plotly
+    var trace = {
+        x: xData,
+        y: yData,
+        mode: 'lines',
+        type: 'scatter'
+    };
+
+    var layout = {
+        title: 'Cases Over Time',
+        xaxis: {
+            title: 'Years',
+            type: 'category'
+        },
+        yaxis: {
+            title: 'Cases'
+        }
+    };
+
+    Plotly.newPlot('graph', [trace], layout);
+</script>
+
 <section>
-    <h2>How Many Are Dying From Cancer?</h2>
-    <p>SOMETHING HERE </p>
-  </section>
+  <h2>Go To Our Other Pages</h2>
+  <p></p>
+</section>
 
   <nav>
     <ul>
-      <li><a href="aboutcancer.html">About Cancer</a></li>
+      <li><a href="cancerrates.html">Rates of Cancer in Ontario</a></li>
       <li><a href="screening.html">Find A Screening Center</a></li>
       <li><a href="cancerapp.html">Back to Home</a></li>
     </ul>

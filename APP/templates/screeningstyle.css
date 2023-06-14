@@ -1,0 +1,42 @@
+
+  
+  #map,
+  body,
+  html {
+    height: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+   */
+
+   h1 {
+    color: black;
+    font-weight: bolder;
+    
+    }
+    
+    h2 {
+    color: black;
+    font-weight: bold;
+    
+    }
+    
+    p {
+    color: rgb(94, 91, 91);
+    
+    
+    }
+    body {
+        padding: 0px;
+        margin: 0.5in;
+      }
+      
+      #map,
+      body,
+      html {
+        height: 100%;
+      }
+      
+    
