@@ -1,4 +1,5 @@
 import datetime as dt
+npm install leaflet
 import numpy as np
 import pandas as pd
 import sqlalchemy
