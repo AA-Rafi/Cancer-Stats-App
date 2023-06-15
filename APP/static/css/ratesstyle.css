@@ -1,0 +1,53 @@
+
+#chart,
+body,
+html {
+  height: 100%;
+}
+
+ h1 {
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 100px
+  
+  }
+  
+  h2 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px
+  }
+  
+  p {
+  text-align: center;
+  color:white;
+  font-size: 50px
+  
+  }
+
+  a {
+    text-align: center;
+    color: white;
+    font-size: 30px
+  }
+  
+  li {
+    text-align: center;
+  }
+
+  body {
+      padding: 0px;
+      margin: 0.5in;
+      background-image: url('https://th.bing.com/th/id/R.c5da86072a386ce7652133452d207121?rik=4kXg7LYGJyeZTQ&ri[…]K2UJoD%2fsKy%2fFZy7wny7pFZ0bMosyafwpdEo%3d&risl=&pid=ImgRaw&r=0');
+      background-size: cover;
+    }
+    
+    #chart,
+    body,
+    html {
+      height: 100%;
+    }  
+      
+  

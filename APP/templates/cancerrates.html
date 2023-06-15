@@ -5,29 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cancer (Project 3)</title>
-    <!-- <link href="style1.css" rel = "stylesheet">
-    <script src="script1.js"></script> -->
-    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../Datasets/avgdata.js"></script>
+    
 </head>
 <body>
 
-<h1> Cancer Rates </h1>
-   
-  <section>
-    <h2>British Columbia</h2>
-    <p>SOMETHING HERE
-    </p>
-  </section>
+  <h1> Average Rate of Cancer in Each Province</h1>
 
-  <section>
-    <h2>Colon Cancer</h2>
-    <p>SOMETHING HERE </p>
-  </section>
+  <div id="chart"></div>
 
-  <section>
-    <h2>Other Cancer</h2>
-    <p>SOMETHING HERE</p>
-  </section>
+  <script>
+
+      var data = avgdata;
+
+      var provinces = data.map(item => item.Province);
+      var values = data.map(item => item.VALUE);
+
+      var trace = {
+          x: provinces,
+          y: values,
+          type: 'bar'
+      };
+
+      var layout = {
+          title: 'Average Rate of Cancer per 100,000',
+          xaxis: {
+              title: 'Province',
+          },
+          yaxis: {
+              title: 'Average Percentage per 100,000'
+          }
+      };
+
+      Plotly.newPlot('chart', [trace], layout);
+  </script>
+
+
 
   <nav>
     <ul>
