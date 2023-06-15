@@ -1,15 +1,14 @@
 // Create a map object.
 
-
-var map = L.map("map", {
+var myMap = L.map("map", {
     center: [45.324242, -79.210716],
     zoom: 7
   });
-  console.log(map)
+  console.log(myMap)
   // Add a tile layer.
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  }).addTo(myMap);
   
   // An array containing each city's name, location, and population
   let cities = [{
@@ -386,7 +385,7 @@ var map = L.map("map", {
   
   // Looping through the cities array, create one marker for each city, bind a popup containing its name and population, and add it to the map.
   for (let i = 0; i < cities.length; i++) {
-    let city = cities[i];
+    var city = cities[i];
     L.marker(city.location)
       .bindPopup(`<h1>${city.name}</h1> <hr> <h3>Address: ${city.Address.toLocaleString()}</h3>`)
       .addTo(myMap);

@@ -5,62 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cancer (Project 3)</title>
-    <link rel = "stylesheet" href="{{ url_for('static', filename='css/statsstyle.css')}}" >
+    <link rel = "stylesheet" href="{{ url_for('static', filename='css/statsstyle.css') }}">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/statsscript.js') }}"></script>
+    <script src="../static/js/statsscript.js"></script>
 
 </head>
 <body>
+  <h1>Cancer Incidence in Canada from 1992-2017</h1>
+  <div id="graph"></div>
 
+  <script>
+      // data from clean_inci
+      var data = clean_inci;
 
-<h1>Cancer Incidence in Canada from 1992-2017</h1>
-<div id="graph"></div>
+      // Sort based on Date
+      data.sort((a, b) => a.REF_DATE - b.REF_DATE);
 
-<script>
-    // data from clean_inci
-    var data = clean_inci;
+      // establishing the x and y data
+      var xData = data.map(record => record.REF_DATE);
+      var yData = data.map(record => record.VALUE);
 
-    // Sort based on Date
-    data.sort((a, b) => a.REF_DATE - b.REF_DATE);
+      // line graph using Plotly
+      var trace = {
+          x: xData,
+          y: yData,
+          mode: 'lines',
+          type: 'scatter'
+      };
 
-    // establishing the x and y data
-    var xData = data.map(record => record.REF_DATE);
-    var yData = data.map(record => record.VALUE);
+      var layout = {
+          title: 'Cases Over Time',
+          xaxis: {
+              title: 'Years',
+              type: 'category'
+          },
+          yaxis: {
+              title: 'Cases'
+          }
+      };
 
-    // line graph using Plotly
-    var trace = {
-        x: xData,
-        y: yData,
-        mode: 'lines',
-        type: 'scatter'
-    };
+      Plotly.newPlot('graph', [trace], layout);
+  </script>
 
-    var layout = {
-        title: 'Cases Over Time',
-        xaxis: {
-            title: 'Years',
-            type: 'category'
-        },
-        yaxis: {
-            title: 'Cases'
-        }
-    };
-
-    Plotly.newPlot('graph', [trace], layout);
-</script>
-
-<section>
+ 
+    <section>
   <h2>Go To Our Other Pages</h2>
   <p></p>
-</section>
+    </section>
 
-  <nav>
+    <nav>
     <ul>
       <li><a href="cancerrates.html">Rates of Cancer in Ontario</a></li>
       <li><a href="screening.html">Find A Screening Center</a></li>
       <li><a href="cancerapp.html">Back to Home</a></li>
     </ul>
-  </nav>
+    </nav>
 
 </body>
 </html>
