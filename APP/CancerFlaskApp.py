@@ -31,6 +31,8 @@ def stats():
 def locations():
      return render_template('screening.html')
 
+app.use_static_for_assets = True
+
 if __name__ == "__main__":
     app.run(debug=True)
 
