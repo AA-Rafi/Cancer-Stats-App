@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cancer Rate</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../Datasets/avgdata.js"></script>
+</head>
+<body>
+    <h1>Average Rate of Cancer in Each Province</h1>
+    <div id="chart"></div>
+
+    <script>
+
+        var data = avgdata;
+
+        var provinces = data.map(item => item.Province);
+        var values = data.map(item => item.VALUE);
+
+        var trace = {
+            x: provinces,
+            y: values,
+            type: 'bar'
+        };
+
+        var layout = {
+            title: 'Average Rate of Cancer per 100,000',
+            xaxis: {
+                title: 'Province',
+            },
+            yaxis: {
+                title: 'Average Percentage per 100,000'
+            }
+        };
+
+        Plotly.newPlot('chart', [trace], layout);
+    </script>
+</body>
+</html>
