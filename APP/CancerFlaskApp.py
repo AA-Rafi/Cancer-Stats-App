@@ -10,8 +10,8 @@ from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'secret!'
-app.config['DEBUG'] = True
+# app.config['SECRET_KEY'] = 'secret!'
+# app.config['DEBUG'] = True
 
 @app.route("/")
 
